@@ -50,6 +50,15 @@ describe("Decorator", function() {
             const actual = room.painted;
             assert.strictEqual(actual, false);
         });
+    });
 
+    describe('Extensions', function() {
+        it("Should be able to minus paint", function() {
+            decorator.addPaint(paintcan);
+            decorator.addPaint(paintcan2);
+            decorator.paintRoom(room);
+            const actual = decorator.totalLitres();
+            assert.strictEqual(actual, 15);
+        });
     });
 });

@@ -28,6 +28,20 @@ Decorator.prototype.enoughPaint = function(room) {
 Decorator.prototype.paintRoom = function(room) {
     if (this.enoughPaint(room) === true) {
         room.painted = true;
+
+        let paintUsed = room.area;
+        for (let paintcan of this.stock) {
+            if (paintUsed >= paintcan.litres) {
+                paintUsed -= paintcan.litres;
+                paintcan.litres = 0;
+            } else {
+                paintcan.litres -= paintUsed;
+                paintUsed = 0;
+            }
+            if (paintUsed == 0) {
+                break;
+            }
+        }
     }
 };
 
