@@ -1,0 +1,22 @@
+{
+  "name": "lab_tdd_painter_decorator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha models/specs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexanderSeton/tdd-painter-lab.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlexanderSeton/tdd-painter-lab/issues"
+  },
+  "homepage": "https://github.com/AlexanderSeton/tdd-painter-lab#readme",
+  "dependencies": {
+    "mocha": "^9.1.3"
+  }
+}
