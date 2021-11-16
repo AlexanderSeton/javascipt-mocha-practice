@@ -10,6 +10,7 @@ describe("Decorator", function() {
         decorator = new Decorator();
         paintcan = new Paintcan(20);
         paintcan2 = new Paintcan(5);
+        paintcan3 = new Paintcan(0);
         room = new Room(10);
     });
     
@@ -53,6 +54,7 @@ describe("Decorator", function() {
     });
 
     describe('Extensions', function() {
+
         it("Should be able to minus paint", function() {
             decorator.addPaint(paintcan);
             decorator.addPaint(paintcan2);
@@ -60,5 +62,15 @@ describe("Decorator", function() {
             const actual = decorator.totalLitres();
             assert.strictEqual(actual, 15);
         });
+
+        it("Should be able to remove empty paintcans", function() {
+            decorator.addPaint(paintcan);
+            decorator.addPaint(paintcan2);
+            decorator.addPaint(paintcan3);
+            decorator.removeEmptyPaintcans();
+            const actual = decorator.stock.length;
+            assert.strictEqual(actual, 2);
+        });
+
     });
 });

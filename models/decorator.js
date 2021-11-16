@@ -1,5 +1,3 @@
-
-
 const Decorator = function() {
     this.stock = [];
 };
@@ -28,7 +26,6 @@ Decorator.prototype.enoughPaint = function(room) {
 Decorator.prototype.paintRoom = function(room) {
     if (this.enoughPaint(room) === true) {
         room.painted = true;
-
         let paintUsed = room.area;
         for (let paintcan of this.stock) {
             if (paintUsed >= paintcan.litres) {
@@ -41,6 +38,14 @@ Decorator.prototype.paintRoom = function(room) {
             if (paintUsed == 0) {
                 break;
             }
+        }
+    }
+};
+
+Decorator.prototype.removeEmptyPaintcans = function() {
+    for (let i = 0; i < this.stock.length; i++) {
+        if (this.stock[i].litres == 0) {
+            this.stock.splice(i, 1);
         }
     }
 };
