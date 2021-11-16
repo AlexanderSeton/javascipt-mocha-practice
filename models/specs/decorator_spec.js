@@ -12,6 +12,7 @@ describe("Decorator", function() {
         paintcan2 = new Paintcan(5);
         paintcan3 = new Paintcan(0);
         room = new Room(10);
+        room2 = new Room(22);
     });
     
     it("Should start with empty paint stock", function() {
@@ -71,6 +72,18 @@ describe("Decorator", function() {
             const actual = decorator.stock.length;
             assert.strictEqual(actual, 2);
         });
+
+        it("Extra test: Should be able to paint room, remove used paint, remove empty paintcans", function() {
+            decorator.addPaint(paintcan);
+            decorator.addPaint(paintcan2);
+            decorator.addPaint(paintcan3);
+            decorator.paintRoom(room2);
+            const actual = decorator.totalLitres();
+            assert.strictEqual(actual, 3);
+            const actual2 = decorator.stock.length;
+            assert.strictEqual(actual2, 1);
+        });
+
 
     });
 });
